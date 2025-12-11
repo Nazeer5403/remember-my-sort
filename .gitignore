@@ -1,0 +1,46 @@
+# Gradle
+.gradle/
+**/build/
+.kotlin/
+.kls_database.db
+
+# IDE/Editor
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.code-workspace
+
+# Local configuration
+local.properties
+
+# Logs / tmp
+.DS_Store
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*.db
+
+# Native build outputs
+.cxx/
+.externalNativeBuild/
+
+# Generated output
+captures/
+outputs/
+test-output/
+*.apk
+*.aab
+*.aar
+
+# Signing artifacts
+*.jks
+*.keystore
+release.keystore
+
+# Exceptions - keep these tracked
+!gradle/wrapper/gradle-wrapper.properties
+!gradle/libs.versions.toml
