@@ -10,7 +10,7 @@ Fixes the persistent sort reset issue in Android 11+ system file picker via LSPo
 
 ## Why This Exists
 
-Starting with [Android 11](https://developer.android.com/about/versions/11/privacy/storage#scoped-storage), all apps that need file access must use the system file picker. This picker fails to persist sort preferences across directories. Sort order is kept in the root view, but navigating into any subdirectory resets it to filename A-Z. Users must manually change the sort every time they browse into a folder, regardless of how many times they've set it before.
+Starting with Android 11's [scoped storage](https://developer.android.com/about/versions/11/privacy/storage#scoped-storage), all apps that need file access must use the system file picker. This picker fails to persist sort preferences across directories. Sort order is kept in the root view, but navigating into any subdirectory resets it to filename A-Z. Users must manually change the sort every time they browse into a folder, regardless of how many times they've set it before.
 
 Users have [reported the issue since 2021](https://xdaforums.com/t/google-files-default-sort.4309799/) with no fix from Google.
 
@@ -37,11 +37,12 @@ Works on AOSP-based ROMs and Pixel devices. OEM-modified ROMs are untested.
 
 ## Installation
 
-1. Install LSPosed framework
-2. Download and install the APK from [Releases](../../releases)
-3. Enable the module in LSPosed Manager
-4. Set scope to `com.google.android.documentsui`
-5. Reboot or force stop DocumentsUI via `Settings > Apps > Files`
+1. Install [LSPosed](https://github.com/JingMatrix/LSPosed) (JingMatrix fork recommended)
+2. Download latest APK from [releases](../../releases)
+3. Install APK and enable module in LSPosed Manager
+4. Add `com.google.android.documentsui` to module scope
+5. Force stop DocumentsUI
+6. Open any file picker to trigger DocumentsUI
 
 ---
 
@@ -57,4 +58,7 @@ Requires JDK 21 and Gradle 8.13.
 
 ## License
 
-[MIT](LICENSE)
+![GNU badge](https://img.shields.io/badge/-GNU-555?style=flat&logo=gnu&logoColor=white)
+![GPLv3 badge](https://img.shields.io/badge/-GPLv3-c62828?style=flat)
+
+This project is licensed under the GNU General Public License v3.0 – see the [LICENSE](LICENSE) file for details.
