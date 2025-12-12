@@ -1,44 +1,48 @@
 # Remember My Sort
 
-LSPosed module that sets DocumentsUI file picker default sort to date descending on Android 12+.
+Restores sort persistence to the native Android file picker via LSPosed.
 
 ![Android API](https://img.shields.io/badge/API-31%2B-brightgreen)
-![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-blue)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue)
 
-## Problem
+---
 
-Android file picker resets to alphabetical sort every time. Pick "sort by date", close the picker, open again, back to A-Z.
+## Why This Exists
 
-**What's broken:**
-- Sort preference IS stored in SharedPreferences (`sortModel-sortType`)
-- Preference resets when picker closes
-- Affects all apps using Storage Access Framework picker
-- Broken since at least Android 12, reported [continuously since 2021](https://xdaforums.com/t/google-files-default-sort.4309799/)
-- Affects Pixel, Samsung, Xiaomi devices
+Android's native file picker ([DocumentsUI](https://developer.android.com/guide/topics/providers/document-provider)) fails to persist user sort preferences. Every time it launches, it resets to alphabetical order, forcing users to manually re-sort their files during every single session.
 
-**Why it matters:**
-Downloads folder grows chronologically. Users want newest files first. Forcing alphabetical sort on every picker launch adds friction to file selection workflow.
+This affects all applications using the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) on Android 12+. When apps invoke the system file picker, it initializes the sort state as `UNKNOWN`, [forcing alphabetical order](https://android.googlesource.com/platform/frameworks/base/+/98d7c7a/packages/DocumentsUI/src/com/android/documentsui/DirectoryLoader.java) regardless of previous selection. The regression appeared in [Android 12](https://source.android.com/docs/core/ota/modular-system/documentsui), dropping the per-directory persistence [introduced in Android 4.4](https://android.googlesource.com/platform/frameworks/base/+/d182bb6). Users have been [reporting this issue since 2021](https://xdaforums.com/t/google-files-default-sort.4309799/), yet an official fix has not been implemented.
 
-**Google response:** No acknowledgment or fix. Still broken 4 years later.
+---
 
-## Solution
+## How it Works
 
-Sets default to date descending. Respects manual sort if you pick one.
+Hooks into DocumentsUI sort logic. Manual sort changes are persisted to storage and restored on subsequent picker launches. Defaults to date descending on first run.
+
+---
 
 ## Requirements
 
-- LSPosed framework installed
-- Android 12 or newer
+- LSPosed framework (API 100)
+- Android 12+ (API 31+)
 
-Tested on Android 13-16 QPR2. Target package: `com.google.android.documentsui`
+---
+
+## Compatibility
+
+Works on AOSP-based ROMs and Pixel devices. OEM-modified ROMs are untested.
+
+---
 
 ## Installation
 
-1. Install [LSPosed](https://github.com/JingMatrix/LSPosed)
-2. Install module APK
-3. Enable module in LSPosed Manager
-4. Add `com.google.android.documentsui` to scope
-5. Force stop DocumentsUI or reboot
+1. Install LSPosed framework
+2. Download and install the APK from [Releases](../../releases)
+3. Enable the module in LSPosed Manager
+4. Set scope to `com.google.android.documentsui`
+5. Reboot or force stop DocumentsUI via `Settings > Apps > Files`
+
+---
 
 ## Build
 
@@ -46,11 +50,9 @@ Tested on Android 13-16 QPR2. Target package: `com.google.android.documentsui`
 ./gradlew assembleDebug
 ```
 
-Requirements: JDK 21, Gradle 8.10+
+Requires JDK 21 and Gradle 8.13.
 
-## How it works
-
-Hooks DocumentsUI sort logic. Applies date descending when user hasn't picked a sort. Detects date field dynamically instead of hardcoding values.
+---
 
 ## License
 
