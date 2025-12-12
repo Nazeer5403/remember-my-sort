@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Remember My Sort</string>
-    <string name="app_desc">Restores sort persistence to the native Android file picker via LSPosed.</string>
+    <string name="app_desc">Fixes the persistent sort reset issue in Android 11+ system file picker.</string>
 </resources>

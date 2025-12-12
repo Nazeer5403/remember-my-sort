@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "eu.hxreborn.remembermysort"
-        minSdk = 31
+        minSdk = 30
         targetSdk = 36
 
         versionCode = 100
