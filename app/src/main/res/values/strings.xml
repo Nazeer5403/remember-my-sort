@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Remember My Sort</string>
-    <string name="app_desc">Fixes the persistent sort reset issue in Android 11+ system file picker.</string>
+    <string name="app_desc">Make Android’s system file picker remember your sort preferences.</string>
 </resources>
