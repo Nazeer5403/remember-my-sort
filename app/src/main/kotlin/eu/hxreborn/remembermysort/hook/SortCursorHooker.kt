@@ -22,6 +22,7 @@ class SortCursorHooker : XposedInterface.Hooker {
         @BeforeInvocation
         fun beforeInvocation(callback: BeforeHookCallback) {
             val sortModel = callback.thisObject ?: return
+
             try {
                 val fields = getSortModelFields(sortModel.javaClass)
                 val isUserSpecified = fields.isUserSpecified.getBoolean(sortModel)
@@ -46,7 +47,8 @@ class SortCursorHooker : XposedInterface.Hooker {
 
             val direction = dimFields.sortDirection.getInt(currentDim)
             val position =
-                (0 until dimensions.size()).firstOrNull { dimensions.valueAt(it) === currentDim }
+                (0 until dimensions.size())
+                    .firstOrNull { dimensions.valueAt(it) === currentDim }
                     ?: return
 
             SortPreferenceStore.persist(position, direction)
@@ -71,43 +73,43 @@ class SortCursorHooker : XposedInterface.Hooker {
         }
 
         private fun findDateDimension(dimensions: SparseArray<*>): Any? =
-            (0 until dimensions.size())
-                .firstNotNullOfOrNull { i ->
-                    dimensions.valueAt(i)?.takeIf { dim ->
-                        getDimensionFields(dim.javaClass)
-                            .defaultSortDirection
-                            .getInt(dim) == Sort.Direction.DESC()
-                    }
+            (0 until dimensions.size()).firstNotNullOfOrNull { i ->
+                dimensions.valueAt(i)?.takeIf { dim ->
+                    val fields = getDimensionFields(dim.javaClass)
+                    fields.defaultSortDirection.getInt(dim) == Sort.Direction.DESC()
                 }
+            }
 
         private fun getSortModelFields(clazz: Class<*>): ReflectedSortModel =
-            sortModelFields?.takeIf { it.clazz == clazz } ?: ReflectedSortModel(
-                clazz = clazz,
-                isUserSpecified =
-                    clazz
-                        .getDeclaredField("mIsUserSpecified")
-                        .apply { isAccessible = true },
-                dimensions =
-                    clazz
-                        .getDeclaredField("mDimensions")
-                        .apply { isAccessible = true },
-                sortedDimension =
-                    clazz
-                        .getDeclaredField("mSortedDimension")
-                        .apply { isAccessible = true },
-            ).also { sortModelFields = it }
+            sortModelFields?.takeIf { it.clazz == clazz }
+                ?: ReflectedSortModel(
+                    clazz = clazz,
+                    isUserSpecified =
+                        clazz.getDeclaredField("mIsUserSpecified").apply {
+                            isAccessible = true
+                        },
+                    dimensions =
+                        clazz.getDeclaredField("mDimensions").apply {
+                            isAccessible = true
+                        },
+                    sortedDimension =
+                        clazz.getDeclaredField("mSortedDimension").apply {
+                            isAccessible = true
+                        },
+                ).also { sortModelFields = it }
 
         private fun getDimensionFields(clazz: Class<*>): ReflectedDimension =
-            dimensionFields?.takeIf { it.clazz == clazz } ?: ReflectedDimension(
-                clazz = clazz,
-                sortDirection =
-                    clazz
-                        .getDeclaredField("mSortDirection")
-                        .apply { isAccessible = true },
-                defaultSortDirection =
-                    clazz
-                        .getDeclaredField("mDefaultSortDirection")
-                        .apply { isAccessible = true },
-            ).also { dimensionFields = it }
+            dimensionFields?.takeIf { it.clazz == clazz }
+                ?: ReflectedDimension(
+                    clazz = clazz,
+                    sortDirection =
+                        clazz.getDeclaredField("mSortDirection").apply {
+                            isAccessible = true
+                        },
+                    defaultSortDirection =
+                        clazz.getDeclaredField("mDefaultSortDirection").apply {
+                            isAccessible = true
+                        },
+                ).also { dimensionFields = it }
     }
 }
