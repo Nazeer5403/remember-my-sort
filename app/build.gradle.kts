@@ -100,7 +100,7 @@ android {
 }
 
 ktlint {
-    version.set("1.4.1")
+    version.set("1.8.0")
     android.set(true)
     ignoreFailures.set(false)
 }
