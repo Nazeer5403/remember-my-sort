@@ -1,40 +1,46 @@
 package eu.hxreborn.remembermysort.data
 
 import android.content.Context
-import eu.hxreborn.remembermysort.model.Sort
+import eu.hxreborn.remembermysort.model.SortPreference
 import java.io.File
 
 private const val PREF_FILENAME = "rms_pref"
-private const val EXPECTED_PARTS = 2
+private const val SERIALIZED_FIELD_COUNT = 3
 
 internal object SortPreferenceStore {
     private val context: Context by lazy {
-        Class
-            .forName("android.app.ActivityThread")
-            .getMethod("currentApplication")
-            .invoke(null) as Context
+        (
+            Class
+                .forName("android.app.ActivityThread")
+                .getMethod("currentApplication")
+                .invoke(null) as? Context
+        )?.applicationContext
+            ?: error("Failed to get application context")
     }
 
-    fun persist(
-        position: Int,
-        direction: Int,
-    ) {
+    private var cached: SortPreference? = null
+
+    fun persist(pref: SortPreference): Boolean {
+        if (pref == cached) return false
         runCatching {
             File(context.filesDir, PREF_FILENAME)
-                .writeText("$position:$direction")
+                .writeText("${pref.position}:${pref.dimId}:${pref.direction}")
+            cached = pref
         }
+        return true
     }
 
-    fun load(): Pair<Int, Int> =
-        File(context.filesDir, PREF_FILENAME)
+    fun load(): SortPreference =
+        cached ?: File(context.filesDir, PREF_FILENAME)
             .takeIf { it.exists() }
-            ?.let { file ->
-                runCatching {
-                    file
-                        .readText()
-                        .split(':', limit = EXPECTED_PARTS)
-                        .takeIf { it.size == EXPECTED_PARTS }
-                        ?.let { (pos, dir) -> pos.toInt() to dir.trim().toInt() }
-                }.getOrNull()
-            } ?: (-1 to Sort.Direction.DESC())
+            ?.runCatching {
+                readText()
+                    .split(':', limit = SERIALIZED_FIELD_COUNT)
+                    .takeIf { it.size == SERIALIZED_FIELD_COUNT }
+                    ?.let { (pos, dimId, dir) ->
+                        SortPreference(pos.toInt(), dimId.toInt(), dir.trim().toInt())
+                    }
+            }?.getOrNull()
+            ?.also { cached = it }
+            ?: SortPreference.DEFAULT
 }

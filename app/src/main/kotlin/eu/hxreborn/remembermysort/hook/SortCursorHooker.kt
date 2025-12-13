@@ -6,6 +6,7 @@ import eu.hxreborn.remembermysort.data.SortPreferenceStore
 import eu.hxreborn.remembermysort.model.ReflectedDimension
 import eu.hxreborn.remembermysort.model.ReflectedSortModel
 import eu.hxreborn.remembermysort.model.Sort
+import eu.hxreborn.remembermysort.model.SortPreference
 import eu.hxreborn.remembermysort.module
 import io.github.libxposed.api.XposedInterface
 import io.github.libxposed.api.XposedInterface.BeforeHookCallback
@@ -51,7 +52,7 @@ class SortCursorHooker : XposedInterface.Hooker {
                     .firstOrNull { dimensions.valueAt(it) === currentDim }
                     ?: return
 
-            SortPreferenceStore.persist(position, direction)
+            SortPreferenceStore.persist(SortPreference(position, -1, direction))
         }
 
         private fun applyPersistedSort(
@@ -59,16 +60,17 @@ class SortCursorHooker : XposedInterface.Hooker {
             fields: ReflectedSortModel,
         ) {
             val dimensions = fields.dimensions.get(sortModel) as? SparseArray<*> ?: return
-            val (pos, dir) = SortPreferenceStore.load()
+            val pref = SortPreferenceStore.load()
+            if (pref.position < 0) return
 
             val targetDim =
                 when {
-                    pos in 0 until dimensions.size() -> dimensions.valueAt(pos)
+                    pref.position in 0 until dimensions.size() -> dimensions.valueAt(pref.position)
                     else -> findDateDimension(dimensions)
                 } ?: return
 
             val dimFields = getDimensionFields(targetDim.javaClass)
-            dimFields.sortDirection.setInt(targetDim, dir)
+            dimFields.sortDirection.setInt(targetDim, pref.direction)
             fields.sortedDimension.set(sortModel, targetDim)
         }
 
@@ -76,7 +78,7 @@ class SortCursorHooker : XposedInterface.Hooker {
             (0 until dimensions.size()).firstNotNullOfOrNull { i ->
                 dimensions.valueAt(i)?.takeIf { dim ->
                     val fields = getDimensionFields(dim.javaClass)
-                    fields.defaultSortDirection.getInt(dim) == Sort.Direction.DESC()
+                    fields.defaultSortDirection.getInt(dim) == Sort.DIRECTION_DESC
                 }
             }
 
