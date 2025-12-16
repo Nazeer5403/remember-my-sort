@@ -41,7 +41,7 @@ Works on AOSP-based ROMs and Pixel devices. OEM-modified ROMs are untested.
 ./gradlew assembleDebug
 ```
 
-Requires JDK 21 and Gradle 8.13.
+Requires JDK 21 and Gradle 8.11.1.
 
 ## License
 
