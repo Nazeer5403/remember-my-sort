@@ -1,0 +1,4 @@
+- Build AARs from source (libxposed submodule)
+- Make release signing optional
+- Fix Fastlane markdown formatting
+- Update Kotlin to 2.1.21
