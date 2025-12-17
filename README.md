@@ -6,6 +6,8 @@ An LSPosed module that forces the Android file picker to remember your sorting p
 ![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue)
 ![Android API](https://img.shields.io/badge/API-30%2B-brightgreen)
 
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid2.png" height="80" alt="Get it on IzzyOnDroid">](https://apt.izzysoft.de/packages/eu.hxreborn.remembermysort)
+
 ## Overview
 
 Starting with Android 11's [scoped storage](https://developer.android.com/about/versions/11/privacy/storage#scoped-storage), all apps that need file access must use the system file picker. This picker fails to persist sort preferences across directories. Sort order is kept in the root view, but navigating into any subdirectory resets it to filename A-Z. Users must manually change the sort every time they browse into a folder, regardless of how many times they've set it before.
@@ -28,7 +30,7 @@ Works on AOSP-based ROMs and Pixel devices. OEM-modified ROMs are untested.
 ## Installation
 
 1. Install [LSPosed](https://github.com/JingMatrix/LSPosed) (JingMatrix fork recommended)
-2. Download latest APK from [releases](../../releases)
+2. Download latest APK from [releases](../../releases) or [IzzyOnDroid](https://apt.izzysoft.de/packages/eu.hxreborn.remembermysort)
 3. Install APK and enable module in LSPosed Manager
 4. Add your DocumentsUI package to module scope:
    - Google/Pixel: `com.google.android.documentsui`
