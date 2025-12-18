@@ -1,12 +1,4 @@
-Forces the Android system file picker (DocumentsUI) to persist sort preferences across directories and sessions.
-
-**The Problem**
-
-Android 11+ requires apps to use the system file picker for storage access. This picker resets sort order to filename A-Z whenever entering subdirectories. Users must manually re-sort every time.
-
-**The Fix**
-
-Hooks DocumentsUI sort handling to persist user preference. Manual sort changes are saved and restored automatically. Defaults to date descending on first run.
+Persists sort preferences in Android's file picker (DocumentsUI). Manual sort changes are saved and restored across directories and sessions. Defaults to date descending.
 
 **Requirements**
 
