@@ -1,23 +1,26 @@
 Persists sort preferences in Android's file picker (DocumentsUI). Manual sort changes are saved and restored across directories and sessions. Defaults to date descending.
 
-**Requirements**
+<b>Requirements</b>
+<ul>
+<li>LSPosed framework (API 100+)</li>
+<li>Android 11+ (API 30)</li>
+<li>Root access</li>
+</ul>
 
-- LSPosed framework (API 100+)
-- Android 11+ (API 30)
-- Root access
+<b>Supported Packages</b>
+<ul>
+<li>com.google.android.documentsui (Google/Pixel devices)</li>
+<li>com.android.documentsui (AOSP ROMs)</li>
+</ul>
 
-**Supported Packages**
+<b>Installation</b>
+<ol>
+<li>Install LSPosed (JingMatrix fork recommended)</li>
+<li>Install this module</li>
+<li>Enable in LSPosed Manager</li>
+<li>Add DocumentsUI package to module scope</li>
+<li>Force stop DocumentsUI</li>
+</ol>
 
-- com.google.android.documentsui (Google/Pixel devices)
-- com.android.documentsui (AOSP ROMs)
-
-**Installation**
-
-1. Install LSPosed (JingMatrix fork recommended)
-2. Install this module
-3. Enable in LSPosed Manager
-4. Add DocumentsUI package to module scope
-5. Force stop DocumentsUI
-
-Source: [GitHub](https://github.com/hxreborn/remember-my-sort)
+Source: https://github.com/hxreborn/remember-my-sort
 License: GPL-3.0
